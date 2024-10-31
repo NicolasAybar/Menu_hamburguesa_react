@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+header{
+    display: flex;/* para que se ponga arriba de todo */
+    align-items: center;/* para que queden centrados verticalmente */
+    justify-content: space-between;/* que el logo quede a la izquierda y el menu es decir los items del nav  derecha   */   
+    padding: 2rem;/*  para que esten separados del borde */
+    background-color: #242424;/*#242424; color del icono de react*/
+}
+.logo{
+    max-width: 5rem;/* para achicarlo  */
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: transform 0.5s ease-in-out;
+}
+.nav-list{
+    list-style-type: none;/*  para que se vean limpios sin viñetas*/
+    display: flex;/* para que se pongan los items uno al lado del otro */
+    gap: 1rem;/* para separar los items entre si*/
+    
+}
+.nav-list li a{
+    text-decoration: none;/* para que no tenga subrayado */
+    color:white;
+}
+.nav-list li a:hover{  /* efecto al pasar el mouse  */
+    color: #535bf2;
+    transition: color 0.5s ease-in-out;
+
+}
+.abrir-menu, .cerrar-menu{
+    display: none;/* para que no se vea en pantallas grandes */
+}
+/* pantallas chicas   */
+@media screen and (max-width: 550px) {
+    .abrir-menu, .cerrar-menu{
+        display: block;/* que va ocupar todo el espacio y el proximo elemento va abajo  */
+        cursor: pointer;
+        border:0;/* border-width: 0;  */
+        font-size: 1.5rem;
+        background-color: transparent;
+    }
+   .abrir-menu{
+        color: #white;
+    }
+    .cerrar-menu{
+        color: #fff;
+    }
+    .nav{
+        opacity: 0;/* el elemento va a ser totalmente trtansparente */
+        visibility: hidden;/* para que no se vea */
+        display: flex;/* para que lo podamos alinear a la derecha, un elemnento al lado del otro */
+        flex-direction: column;/* los elementos del nav, uno abajo del otro, por defecto es row es decir uno al lado del otro */
+        align-items: flex-end;/* para que los elementos se ubiquen al final */
+        gap: 1rem;/* para separarlos*/
+        position: absolute;/* se ubica automáticamente en la esquina superior izquierda del contenedor posicionado, */
+        top: 0;/* para que se ponga arriba de todo */
+        right: 0;/*  para que esten a la derecha*/
+        bottom: 0;/* para que esten abajo de todo */
+        background-color: #242424;
+        padding: 2rem;/*  para que esten separados del borde */
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+        transform: translateX(100%);
+        transition:opacity 0.6s ease-in,transform 0.3s ease-in;
+        
+    }
+    .nav.visible{
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    .nav-list{
+        flex-direction: column;
+        align-items: end;
+        gap: 2rem;
+    }
+    
+    .nav-list li a{
+        color: white;
+    }
+}

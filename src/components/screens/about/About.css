@@ -1,0 +1,6 @@
+.about{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 3rem;/* para separar el menu de abajo del contenido*/
+    color: #black;
+    text-align: center;
+}
